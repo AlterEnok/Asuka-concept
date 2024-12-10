@@ -382,6 +382,9 @@ body {
     padding-top: 100px;
     /* Меньше отступ сверху для мобильных устройств */
   }
+  .hero__content {
+    padding-top: 80px;
+  }
   .hero__title {
     font-size: clamp(1.8rem, 10vw, 48px);
     /* Меньший размер шрифта на мобильных */
