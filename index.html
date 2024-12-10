@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asuka</title>
+    <link rel="stylesheet" href="scss/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Leckerli+One&family=Lobster&family=Macondo+Swash+Caps&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container">
+            <!-- Навигация слева -->
+            <ul class="nav__list nav__list--left">
+                <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="#menu" class="nav__link">Menu</a></li>
+            </ul>
+
+            <!-- Логотип -->
+            <div class="header__logo">
+                <a href="/"><img src="img/logo.svg" alt="Asuka Logo"></a>
+            </div>
+
+            <!-- Навигация справа -->
+            <ul class="nav__list nav__list--right">
+                <li class="nav__item"><a href="#about" class="nav__link">About Us</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+
+            <!-- Бургер-меню -->
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Мобильное меню -->
+            <div class="menu">
+                <ul class="menu__list">
+                    <li class="menu__item"><a href="#home" class="menu__link">Home</a></li>
+                    <li class="menu__item"><a href="#menu" class="menu__link">Menu</a></li>
+                    <li class="menu__item"><a href="#about" class="menu__link">About Us</a></li>
+                    <li class="menu__item"><a href="#contact" class="menu__link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="hero__bg"></div>
+
+            <!-- Текст и видео -->
+            <div class="hero__content">
+                <h1 class="hero__title"><span class="lobster">Welcome</span> <span class="lecler">to </span> <span
+                        class="mocando">Asuka</span></h1>
+
+                <!-- Видео с кнопкой Play/Pause -->
+                <div class="hero__video-wrapper">
+                    <video class="hero__video" loop muted>
+                        <source src="https://videos.pexels.com/video-files/8902153/8902153-hd_1920_1080_25fps.mp4"
+                            type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <button class="hero__play-btn" aria-label="Play/Pause Video">
+                        <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24">
+                            <polygon points="8,5 19,12 8,19" fill="black" />
+                        </svg>
+                        <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24">
+                            <rect x="5" y="3" width="4" height="18" fill="black" />
+                            <rect x="15" y="3" width="4" height="18" fill="black" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="hero__arrow">
+                    <svg width="53" height="52" viewBox="0 0 53 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.49268 2.01367L24.6094 50.4872" stroke="white" stroke-width="3" />
+                        <path d="M49.0186 6L23.6478 50.0819" stroke="white" stroke-width="3" />
+                    </svg>
+                </div>
+        </section>
+    </main>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

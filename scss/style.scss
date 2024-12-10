@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color: #d6d6d6;
+    --font-family-main: "Lilita One", sans-serif;
+    --font-family-secondary: "Lobster", sans-serif;
+    --font-family-lecreri: "Leckerli One", sans-serif;
+    --font-family-macondo: "Macondo Swash Caps", sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+img {
+    max-width: 100%;
+}
+
+[class*="__container"] {
+    max-width: 1287px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+body {
+    background: linear-gradient(80deg, #1b1b1b 0%, #403b3b 100%);
+    font-family: var(--font-family-secondary);
+}
+
+/* HEADER */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1267px;
+        margin: 0 auto;
+        padding: 0 20px;
+        height: clamp(200px, 15vh + 10rem, 240px);
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+            height: auto;
+            /* Высота будет подстраиваться */
+        }
+    }
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 60px;
+
+        img {
+            width: clamp(240px, 20vw, 270px);
+            height: clamp(180px, 18vw, 208px);
+            object-fit: contain;
+
+
+            @media (min-width: 768px) and (max-width: 1024px) {
+                width: clamp(203px, 50vw, 375px);
+                height: clamp(130px, 20vw, 160px);
+
+            }
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+
+    &__list {
+        display: flex;
+        gap: clamp(40px, 5vw + 15px, 65px);
+        margin-top: clamp(10px, 2vw + 10px, 16px);
+
+        &--left {
+            margin-left: clamp(10vh, 5vw + 15px, 15vh);
+        }
+
+
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            margin-left: auto;
+
+            margin: 10px 0 0;
+        }
+
+        /* Мобильная версия скрывает навигацию */
+        @media (max-width: 767px) {
+            display: none;
+        }
+    }
+
+    &__item {
+        list-style: none;
+    }
+
+    &__link {
+        font-family: "Lilita One", sans-serif;
+        font-weight: 500;
+        font-size: clamp(18px, 3vw + 5px, 24px);
+        line-height: 114%;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: #fff;
+        text-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        transition: color 0.3s ease;
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            font-size: clamp(16px, 3vw, 20px);
+            /* Уменьшаем шрифт */
+            text-shadow: none;
+            /* Убираем тени для лучшей читаемости */
+        }
+
+        &:hover {
+            color: #6c171f;
+        }
+    }
+}
+
+/* Бургер-меню */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+
+    span {
+        width: 30px;
+        height: 3px;
+        background-color: #fff;
+        margin: 6px 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    @media (max-width: 767px) {
+        display: flex;
+    }
+}
+
+/* Мобильное меню */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: left 0.3s ease;
+
+    &._active {
+        left: 0;
+        /* Двигаем меню в видимую область */
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+    }
+
+    &__item {
+        text-align: center;
+    }
+
+    &__link {
+        font-family: "Lilita One", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        letter-spacing: 0.1em;
+        color: #fff;
+        text-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #6c171f;
+        }
+    }
+}
+
+/* Мобильная версия бургер-меню */
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+
+
+    @media (max-width: 767px) {
+
+        flex-direction: column;
+        justify-content: space-between;
+        height: 18px;
+        width: 30px;
+
+        cursor: pointer;
+        z-index: 1000;
+
+        span {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+
+            transition: all 0.3s ease;
+
+            &:nth-child(1) {
+                top: 0;
+            }
+
+            &:nth-child(2) {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            &:nth-child(3) {
+                bottom: 0;
+            }
+        }
+
+        &._active span {
+            background-color: #fff;
+            transform: scale(0);
+
+            &:nth-child(1) {
+                transform: rotate(45deg);
+                top: 50%;
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+                top: 50%;
+            }
+        }
+    }
+}
+
+/*-------------------- Main-----------------*/
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding-top: clamp(131px, 18vw, 278px);
+    /* Адаптивный отступ сверху */
+
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../img/bg.jpg');
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.658);
+            z-index: 1;
+        }
+    }
+
+    &__content {
+        text-align: center;
+        z-index: 2;
+        padding: clamp(20px, 5vw, 40px);
+        /* Адаптивные отступы */
+    }
+
+    &__title {
+        font-family: 'Lilita One', sans-serif;
+        font-size: clamp(2rem, 8vw, 96px);
+        /* Адаптивный размер шрифта */
+        margin-bottom: clamp(10px, 2vw, 30px);
+        /* Адаптивный марджин */
+        line-height: 125%;
+        letter-spacing: clamp(0.1em, 0.3vw, 0.13em);
+        /* Адаптивное расстояние между буквами */
+
+        .lobster {
+            font-family: "Lobster", sans-serif;
+            font-weight: 400;
+        }
+
+        .lecler {
+            font-family: "Leckerli One", sans-serif;
+        }
+
+        .mocando {
+            font-family: "Macondo Swash Caps", sans-serif;
+        }
+    }
+
+    &__subtitle {
+        font-family: 'Leckerli One', cursive;
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+        /* Адаптивный размер шрифта */
+        margin-bottom: clamp(20px, 3vw, 30px);
+        /* Адаптивный марджин */
+    }
+
+    &__video-wrapper {
+        position: relative;
+        width: clamp(300px, 50vw, 623px);
+        /* Адаптивная ширина */
+        height: clamp(200px, 40vw, 340px);
+        /* Адаптивная высота */
+        margin: 0 auto;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        overflow: hidden;
+
+        .hero__video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Скрываем кнопку по умолчанию */
+        .hero__play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            padding: clamp(10px, 2vw, 12px) clamp(20px, 5vw, 24px);
+            /* Адаптивные отступы кнопки */
+            font-size: clamp(18px, 3vw, 20px);
+            /* Адаптивный размер шрифта */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 3;
+            opacity: 0;
+            /* Скрыта по умолчанию */
+            transition: opacity 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .play-icon {
+                display: block;
+            }
+
+            .pause-icon {
+                display: none;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        /* Показываем кнопку только при наведении на видео */
+        &:hover .hero__play-btn {
+            opacity: 1;
+        }
+    }
+
+    &__arrow {
+        margin-top: 46px;
+        animation: arrowBounce 2s ease-in-out infinite;
+
+        @keyframes arrowBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                /* начальная и конечная позиция */
+            }
+
+            50% {
+                transform: translateY(-10px);
+                /* поднятие стрелки */
+            }
+        }
+
+
+    }
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 100px;
+        /* Меньше отступ сверху для мобильных устройств */
+    }
+
+    .hero__title {
+        font-size: clamp(1.8rem, 10vw, 48px);
+        /* Меньший размер шрифта на мобильных */
+        margin-bottom: clamp(33px, 13vw, 25px);
+        letter-spacing: clamp(0.05em, 0.2vw, 0.1em);
+    }
+
+    .hero__subtitle {
+        font-size: clamp(1.2rem, 4vw, 2rem);
+        margin-bottom: clamp(15px, 2vw, 20px);
+    }
+
+    .hero__video-wrapper {
+        width: 100%;
+        /* Видео адаптируется к ширине экрана */
+        height: auto;
+        /* Автоматическая высота для сохранения пропорций */
+    }
+
+    .hero__play-btn {
+        padding: clamp(8px, 4vw, 12px) clamp(16px, 3vw, 24px);
+        font-size: clamp(16px, 3vw, 18px);
+    }
+
+
+}
+
+
+
+
+/*-------------------- Main-----------------*/
