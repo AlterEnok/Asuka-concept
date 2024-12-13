@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (menuIcon && menu) {
         menuIcon.addEventListener('click', () => {
-            menu.classList.toggle('_active'); // Активирует мобильное меню
-            menuIcon.classList.toggle('_active'); // Анимация кнопки бургер-меню
+            menu.classList.toggle('_active');
+            menuIcon.classList.toggle('_active');
         });
     }
 });
@@ -17,12 +17,12 @@ document.querySelector('.hero__play-btn').addEventListener('click', function () 
     const pauseIcon = document.querySelector('.pause-icon');
 
     if (video.paused) {
-        video.play(); // Возобновление воспроизведения
-        playIcon.style.display = 'none'; // Скрыть иконку Play
-        pauseIcon.style.display = 'block'; // Показать иконку Pause
+        video.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'block';
     } else {
-        video.pause(); // Поставить на паузу
-        playIcon.style.display = 'block'; // Показать иконку Play
-        pauseIcon.style.display = 'none'; // Скрыть иконку Pause
+        video.pause();
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
     }
 });

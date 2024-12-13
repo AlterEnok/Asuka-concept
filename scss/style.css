@@ -254,7 +254,6 @@ body {
   justify-content: center;
   color: #fff;
   padding-top: clamp(131px, 18vw, 278px);
-  /* Адаптивный отступ сверху */
 }
 .hero__bg {
   position: absolute;
@@ -281,17 +280,13 @@ body {
   text-align: center;
   z-index: 2;
   padding: clamp(20px, 5vw, 40px);
-  /* Адаптивные отступы */
 }
 .hero__title {
   font-family: "Lilita One", sans-serif;
   font-size: clamp(2rem, 8vw, 96px);
-  /* Адаптивный размер шрифта */
   margin-bottom: clamp(10px, 2vw, 30px);
-  /* Адаптивный марджин */
   line-height: 125%;
   letter-spacing: clamp(0.1em, 0.3vw, 0.13em);
-  /* Адаптивное расстояние между буквами */
 }
 .hero__title .lobster {
   font-family: "Lobster", sans-serif;
@@ -302,6 +297,7 @@ body {
 }
 .hero__title .mocando {
   font-family: "Macondo Swash Caps", sans-serif;
+  color: #80121d;
 }
 .hero__subtitle {
   font-family: "Leckerli One", cursive;
